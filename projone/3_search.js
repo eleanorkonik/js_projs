@@ -1,10 +1,6 @@
 /* this is taken from print.js - once you have something working, it's good practice to avoid messing with it. Copy it over into a new file just in case. */
 
-
-
-
 const fs = require('fs')
-
 
 var data;
 try {
@@ -46,7 +42,7 @@ matchString();
 
 /* 
 The above is proof of concept without using any variables
-The below is proof of concept using the variable defined in line 9. 
+The below is proof of concept using the variable defined in line 5. 
 */ 
 
 function matchString() {
@@ -55,4 +51,4 @@ function matchString() {
 }
 matchString();
 
-
+/* Note: in properly formatted code you wouldn't have so much repetition, but I'm keeping them separate for the visual cueing */ 
