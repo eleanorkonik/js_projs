@@ -1,4 +1,4 @@
-/* this is taken from openprintclosefile.js */
+/* this is taken from print.js - once you have something working, it's good practice to avoid messing with it. Copy it over into a new file just in case. */
 
 const fs = require('fs')
 
@@ -16,7 +16,7 @@ To do this, I would need to search the whole folder. That seems harder than doin
     that seems easier than a multiple files that each have one of the words in the sentence and trying to return the filename of the one that has "jumps" in it,
     which isn't really the ultimate goal of my plugin anyway. 
 
-    So in that case, I should be able to work from just the data and regex. This should theoretically worth the string.match function
+    So in that case, I should be able to work from just the data and regex. This should theoretically work with the string.match function
 
     But before I do that I should scan a file to see if its contents match a search term, and I can do this by deleting the word in testrun 2. 
 */ 
