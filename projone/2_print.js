@@ -10,8 +10,6 @@
             
      Use fs.readdir() or fs.readdirSync() to read the contents of a directory.
 
-       
-
      Obsidian doesn't use fs and path, it uses its own api because it's electron-based, so as the learning exercise it was important to do the above.
      But once I have a better understanding of javascript, I should begin here for the Obsidian plugin:
         sample plugin that does this: https://github.com/lynchjames/note-refactor-obsidian
