@@ -41,7 +41,10 @@ function matchString() {
 matchString();
 
 /* 
-The above is proof of concept without using any variables
+The above is proof of concept without using any variables.
+
+Note: lines 36-40 define the function ; line 41 calls it.
+
 The below is proof of concept using the variable defined in line 5. 
 */ 
 

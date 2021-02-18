@@ -1,7 +1,7 @@
 /* 
 the plugin will ultimately want to look at a collection of files all in the same directory. 
 The goal of this module is to print out all of the filenames and all of the files in the current directory.
-Alec thought it would require loops, but it doesn't seem to in javascript. 
+Alec thought it would require loops, but it doesn't seem to in javascript? Wait no: forEach is a loop. 
 */
 
 // step one: https://nodejs.dev/learn/working-with-folders-in-nodejs
