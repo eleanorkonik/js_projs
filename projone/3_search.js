@@ -1,4 +1,4 @@
-/* this is taken from openprintclosefile.js */
+/* this is taken from print.js - once you have something working, it's good practice to avoid messing with it. Copy it over into a new file just in case. */
 
 const fs = require('fs')
 
