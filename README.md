@@ -1,2 +1,6 @@
 # js_projs
- Learning Javascript in Public
+ Eleanor Learns Javascript in Public
+
+# Getting Started
+
+* Install: https://nodejs.org/en/download/
