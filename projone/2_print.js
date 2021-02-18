@@ -39,6 +39,8 @@
  /* 
     try ... catch is basically a complex if statement. "If X works, do X, else do Y" 
     documentation is here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+	"try" gets used when there's a chunk of code that might go wrong, 
+	in the preceding example the suspect thing is the readfile because the file might not exist.
 */ 
 
  /* __dirname variable returns the absolute path of the directory */

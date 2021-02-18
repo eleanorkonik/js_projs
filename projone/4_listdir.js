@@ -1,0 +1,5 @@
+/* 
+the plugin will ultimately want to look at a collection of files all in the same directory. 
+The goal of this module is to print out all of the filenames and all of the files in the current directory.
+This will require loops.
+*/
