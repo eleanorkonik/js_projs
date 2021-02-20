@@ -122,7 +122,7 @@ function fromDir(startPath,filter,callback){
             {
                 callback(filename);
                 // callback functions are sort of like derpy function-only variables that let you do a --> b --> c. 
-                // but b says "do a." computer does a, but b says do va, so the computer does v, then a, then c (because it knows to skip b).
+                // but b says "do va." computer does a, but since b says do va, the computer does v, then a, then c (because it knows to skip b).
                 // see also: https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/
             }
         }
