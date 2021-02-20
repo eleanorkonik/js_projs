@@ -89,29 +89,48 @@ fromDir(__dirname,'.md');
 */
 
 // this works but it only matches .md not .MD -- probably not a problem under normal circumstances, but I should be thorough, right? 
-// trying to change line 85 to `fromDir(__dirname,'/.md/i');` resulted in it returning nothing.
+// trying to change line 87 to `fromDir(__dirname,'/.md/i');` resulted in it returning nothing.
 
 var path = require('path'), fs=require('fs');
 
 function fromDir(startPath,filter,callback){
-
-    //console.log('Starting from dir '+startPath+'/');
-
+// this is structured as line 121: startPath is __dirname, filter is the regex, and the callback is function(filename) -- an anonymous function. 
+    console.log('Starting from dir '+startPath+'/');
+// fs is the file system module. ! is negation, same as lua. therefore, if the startPath directory does not exist, then echo an error msg. 
     if (!fs.existsSync(startPath)){
         console.log("no dir ",startPath);
         return;
     }
-
+    // readdirSync is the built-in functionality from the module; it's being used to define "files" here. 
+    // this variable stores the result of the function so that you can interact with it later via an array. here, "files" is behaving like an array. 
     var files=fs.readdirSync(startPath);
+    // Eleanor: the following is a loop and an array. see 8_printloop.js for documentation and more detailed examples. 
+    // the below is looping however number of times there are number of files. 
     for(var i=0;i<files.length;i++){
+    // Source: files is a list (in javascript, this is interchangeable with an array). [i] is the place in the list (index) this gets used as convention because it stands for "index" 
         var filename=path.join(startPath,files[i]);
-        var stat = fs.lstatSync(filename);
-        if (stat.isDirectory()){
-            fromDir(filename,filter,callback); //recurse
+        // the above line makesfilename == __dir plus file# in the loop series. 
+        // basically, it's taking the directory name and adding the file that it's looking at in the list so that it gets spit back out later. 
+        //var stat = fs.lstatSync(filename); <-- moved this to line 116 to chain the functions. see also: https://medium.com/@jamischarles/how-to-chain-functions-in-javascript-6644d44793fd
+        // status here is basically referring to "is it a file or a folder" though it can be used for other stuff like timestamps. 
+        if (fs.lstatSync(filename).isDirectory()){
+            fromDir(filename,filter,callback); //recursion: when you call something inside of where you define it / its own definition. 
         }
-        else if (filter.test(filename)) callback(filename);
+        else
+        {
+            if (filter.test(filename))
+            {
+                callback(filename);
+                // callback functions are sort of like derpy function-only variables that let you do a --> b --> c. 
+                // but b says "do a." computer does a, but b says do va, so the computer does v, then a, then c (because it knows to skip b).
+                // see also: https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/
+            }
+        }
     };
 };
+
+// below is where startPath is getting defined in line 96. 
+// this is where the thing HAPPENS. above is basically where it's defined? 
 
 fromDir(__dirname,/\.md$/i,function(filename){
     console.log('-- found: ',filename);
