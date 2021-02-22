@@ -136,3 +136,37 @@ fromDir(__dirname,/\.md$/i,function(filename){
     console.log('-- found: ',filename);
 });
 
+/* ShaLLaX suggests: don't be afraid of white space — fromDir(filename,filter,callback) is less readable than fromDir(filename, filter, callback)
+
+His version, rewritten to include promises:  
+
+var path = require('path'), fs=require('fs');
+
+async function fromDir(startPath, filter, callback){
+    const stats = await fs.promises.stat(startPath);
+
+    if (!stats.isDirectory()){
+        console.log("no dir ",startPath);
+        return;
+    }
+
+    var files = await fs.promises.readdir(startPath);
+
+    for(var i = 0; i < files.length; i++) {
+        var filename = path.join(startPath, files[i]);
+        const curStats = await fs.promises.stat(filename);
+
+        if (curStats.isDirectory()) {
+            fromDir(filename, filter, callback);
+        }
+        else if (filter.test(filename)) {
+            callback(filename);
+        }
+    };
+};
+
+fromDir(__dirname, /\.md$/i, (filename) => {
+    console.log(-- found: ${filename});
+});
+
+*/ 
