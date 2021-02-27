@@ -1,9 +1,31 @@
-/* 
-goal: apply regex from 3_search to all the .md files in 5_match such that the output is only the canine.md
-note from koala: look into using let and const instead of var. https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
-*/
+/* Goal: Match a particular subheader and its contents. The format to be matched is
 
-// combines 3_search & 5_match
+# Stuff
+
+## Goals
+
+## Reflections
+
+* Text1
+* Text2
+
+## Accomplishments
+
+Useful Resources:
+* validator: https://regex101.com/ 
+
+## Tutorials
+* https://regexone.com/lesson/capturing_groups
+* https://regexone.com/lesson/more_groups
+* https://javascript.info/regexp-multiline-mode 
+
+* https://www.codecademy.com/learn/introduction-to-regular-expressions
+* https://regular-expressions.mobi/quickstart.html
+
+*/ 
+
+// The regex I got to work is: /## Reflections\n((?:.|\n)*)##/
+// I inserted the regex into 6_combine.js
 
 var path = require('path'), fs=require('fs');
 
@@ -32,10 +54,10 @@ fromDir(__dirname,/\.md$/i,function(filename){
     try {
       data = fs.readFileSync(filename, 'utf8')
       function matchString()  {
-        var result = data.match(/dog/g);
+        var result = data.match(/## Reflections\n(?<group_name>(?:.|\n)*)##/);
         if (result !== null) {
-          console.log('-- found: ',filename);
-          console.log(result);}
+          // console.log('-- found: ',filename);
+          console.log(result.groups.group_name);}
      }
     matchString();
     } catch (err) {
@@ -43,5 +65,4 @@ fromDir(__dirname,/\.md$/i,function(filename){
     }
 });
 
-
-// next "big" will be: look for headings and print the stuff in between.  
+// next project: concatenate this output into a new .md file 

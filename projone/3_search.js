@@ -33,12 +33,12 @@ To do this, I would need to search the whole folder. That seems harder than doin
     string.match(regex) relies on regex. This is a good resource for learning regex if you're not already familiar with it: https://regexone.com/lesson/letters_and_digits
 */
 
-function matchString() {
+function matchString1() {
   var string = "cat turtle cat";
   var result = string.match(/turtle/g);
-  console.log(result);
+  console.log("result of turtle match: " + result);
 }
-matchString();
+matchString1();
 
 /* 
 The above is proof of concept without using any variables.
@@ -48,10 +48,10 @@ Note: lines 36-40 define the function ; line 41 calls it.
 The below is proof of concept using the variable defined in line 5. 
 */ 
 
-function matchString() {
+function matchString2() {
   var result = data.match(/dog/g);
-  console.log(result);
+  console.log("result of dog match: " + result);
 }
-matchString();
+matchString2();
 
 /* Note: in properly formatted code you wouldn't have so much repetition, but I'm keeping them separate for the visual cueing */ 
