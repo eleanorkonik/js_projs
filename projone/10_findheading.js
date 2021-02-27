@@ -54,9 +54,18 @@ fromDir(__dirname,/\.md$/i,function(filename){
     try {
       data = fs.readFileSync(filename, 'utf8')
       function matchString()  {
-        var result = data.match(/## Reflections\n(?<group_name>(?:.|\n)*)##/);
+        //var result = data.match(/## Reflections\n(?<group_name>(?:.|\n)*)##/);
+        
+        var result = data.match(/## Reflections\n(?<group_name>(?:.|\n)*?)(?:##|$)/);
+        // step one: name the capture group, which is surprisingly unusual in javascript compared to other languages 
+        // the ? after the * makes the primary capture group non-greedy, which is necessary 
+        // because we're taking into account newlines, we don't have to deal with "m" for multiline matching.
+        // in regex, the pipe (|) means "or" -- we have to use this or because we want to capture everything INCLUDING newlines, which . doesn't normally 
+        // see also: this amazing resource: https://stackoverflow.com/a/2824314
+        // protip: $ doesn't always mean "end of regex" ! 
+
         if (result !== null) {
-          // console.log('-- found: ',filename);
+        //  console.log('-- found: ',filename);
           console.log(result.groups.group_name);}
      }
     matchString();
