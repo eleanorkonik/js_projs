@@ -1,4 +1,4 @@
-// goal: write output from 10_ into a .md file
+// goal: write output from 10_ into a .md file using the code in 11_ 
 
 var path = require('path'), fs=require('fs');
 let output_randomnumber = Math.floor(Math.random() * 100000000);
