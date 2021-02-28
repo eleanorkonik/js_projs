@@ -63,3 +63,15 @@ fromDir(__dirname,/\.md$/i,function(filename){
     }
 });
 
+/* 
+This piece of javascript will let you search the markdown files in a directory for a recurringly-used subheading 
+(e.g. ## Goals or ## Todo in your daily notes) and then concatenate all of the pieces underneath of that specific heading 
+into a markdown file with a randomly-generated-numerical identifier. I hope to turn this into a plugin one day (with schnazzy features), 
+but for right now, I think it's useful enough that someone in the community might get something out of it. 
+The script itself is here: https://github.com/eleanorkonik/js_projs/blob/main/projone/print_subheading_search_result_content_to_md.js and 
+that github directory includes every heavily-commented, iterated step of how I got from "never made a program of any kind in my life" 
+to "created a working javascript program" so if you're curious what each part of the code does, just navigate the directory. 
+I'm happy to answer questions but please use at your own risk (backups are your friend!) because I'm not sure the error handling is particularly
+robust and I am a very neophyte coder (although I had some experienced people help me make it, and as long as you don't habitually name your files 
+outout_randomnumber it shouldn't be able to overwrite anything you care about). Shoutouts to @liam @koala54 @death_au and @simonthefox for the help.
+*/

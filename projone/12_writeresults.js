@@ -1,22 +1,4 @@
-/* 
-NOTE: this requires node.js to be installed. 
-
-the following script, when run from a single directory, will search all .md files in that directory and create a .md file containing all contents of a level 2 heading, like so:
-
-    # Title
-    ## Reflections
-    * content1
-    * content2
-    ## Heading 2
-
-As currently written, it will return 
-
-    * content1
-    * content2
-
-but it should be pretty straightfoward to change your search term. Note that it should still work even if you don't have a ## Heading 2. 
-If you'd like to see the actual filenames that the content is coming from, uncomment line 53
-*/ 
+// combine 11_ and 11_ to output a markdown file containing the contents of a recurring subheading. 
 
 var path = require('path'), fs=require('fs');
 let output_randomnumber = Math.floor(Math.random() * 100000000);
