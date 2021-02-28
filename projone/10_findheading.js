@@ -74,4 +74,16 @@ fromDir(__dirname,/\.md$/i,function(filename){
     }
 });
 
-// next project: concatenate this output into a new .md file 
+// next project: turn this output into a new .md file 
+
+/* Note: The follow regex from Koala works better in other circumstances:
+
+I would do it with a conditional, but the Chrome JS-Regex engine doesn't support them.
+I don't see a way to do it only with Regex in Chrome/Electron.
+
+    (## stuff2\n(?:.*\n)+(?=#))|(## stuff2\n(?:.*\n)+)
+
+        If you match this in a file, you can look whether match group 1 is undefined. 
+        If it isn't, then use/copy match group 1. Else if match group 2 is not undefined, then use/copy that. 
+        Else do nothing and continue with the next file.
+*/ 

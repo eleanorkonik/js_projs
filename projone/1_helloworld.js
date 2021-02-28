@@ -45,3 +45,6 @@ console.log('Hello %s!', username);
      %s is basically a variable defined by the string, which is defined in the parenthetical. 
     Here, "username" is the string, which VSCode helpfully denotes upon mouseover.
 */
+
+let currentdate = Date.now() 
+console.log ('date: ' +currentdate)
