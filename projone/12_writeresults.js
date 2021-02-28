@@ -1,4 +1,22 @@
-// goal: write output from 10_ into a .md file using the code in 11_ 
+/* 
+NOTE: this requires node.js to be installed. 
+
+the following script, when run from a single directory, will search all .md files in that directory and create a .md file containing all contents of a level 2 heading, like so:
+
+    # Title
+    ## Reflections
+    * content1
+    * content2
+    ## Heading 2
+
+As currently written, it will return 
+
+    * content1
+    * content2
+
+but it should be pretty straightfoward to change your search term. Note that it should still work even if you don't have a ## Heading 2. 
+If you'd like to see the actual filenames that the content is coming from, uncomment line 53
+*/ 
 
 var path = require('path'), fs=require('fs');
 let output_randomnumber = Math.floor(Math.random() * 100000000);
@@ -11,7 +29,9 @@ function fromDir(startPath,filter,callback){
         console.log("no dir ",startPath);
         return;
     }
-
+    fs.writeFile('output_' +output_randomnumber+ '.md', '', (err) => { 
+        if (err) throw err; 
+    })
     var files=fs.readdirSync(startPath);
     for(var i=0;i<files.length;i++){
         var filename=path.join(startPath,files[i]);
@@ -31,25 +51,15 @@ fromDir(__dirname,/\.md$/i,function(filename){
         var result = data.match(/## Reflections\n(?<group_name>(?:.|\n)*?)(?:##|$)/);
         if (result !== null) {
         //  console.log('-- found: ',filename);
-          console.log(result.groups.group_name);}
+          console.log(result.groups.group_name);
             console.log ('added to filename: output_' +output_randomnumber)
-            fs.writeFile('output_' +output_randomnumber+ '.md', result.groups.group_name, (err) => { 
+            fs.appendFile('output_' +output_randomnumber+ '.md', result.groups.group_name, (err) => { 
                 if (err) throw err; 
-            })           
+            })}           
      }
     matchString();
     } catch (err) {
       console.error(err)
     }
 });
-
-/* this throws the following error:
-
-TypeError: Cannot read property 'groups' of null
-    at matchString (D:\js_projs\projone\12_writeresults.js:36:72)
-    at D:\js_projs\projone\12_writeresults.js:40:5
-    at fromDir (D:\js_projs\projone\12_writeresults.js:22:41)
-    at Object.<anonymous> (D:\js_projs\projone\12_writeresults.js:26:1)
-
-*/
 
