@@ -16,7 +16,7 @@ As currently written, it will return
     * content1
     * content2
 
-but should be pretty straightfoward to change your search term. 
+but should be pretty straightfoward to change your search term. Note that it should still work even if you don't have a ## Heading 2. 
 
 If you'd like to see the actual filenames that the content is coming from, uncomment line 52 */ 
 
