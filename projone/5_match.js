@@ -109,7 +109,7 @@ function fromDir(startPath,filter,callback){
     for(var i=0;i<files.length;i++){
     // Source: files is a list (in javascript, this is interchangeable with an array). [i] is the place in the list (index) this gets used as convention because it stands for "index" 
         var filename=path.join(startPath,files[i]);
-        // the above line makesfilename == __dir plus file# in the loop series. 
+        // the above line makes filename == __dir plus file# in the loop series. 
         // basically, it's taking the directory name and adding the file that it's looking at in the list so that it gets spit back out later. 
         //var stat = fs.lstatSync(filename); <-- moved this to line 116 to chain the functions. see also: https://medium.com/@jamischarles/how-to-chain-functions-in-javascript-6644d44793fd
         // status here is basically referring to "is it a file or a folder" though it can be used for other stuff like timestamps. 

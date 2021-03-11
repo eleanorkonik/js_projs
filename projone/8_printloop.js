@@ -13,3 +13,6 @@ console.log("qer.length is " + qer.length);
 
 var numbers =  ["First","Second","Third"];
 console.log(numbers.join("|"))
+
+// "path" behaves like an array, as above. 
+// note: Array with a capital letter signifies something different. 
